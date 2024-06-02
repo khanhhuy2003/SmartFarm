@@ -18,7 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo_IOT_App">
         <activity
-            android:name=".LoginActivity"
+            android:name=".mixer3"
+            android:exported="true" />
+        <activity
+            android:name=".mixer2"
+            android:exported="true" />
+        <activity
+            android:name=".mixer1"
+            android:exported="true" />
+        <activity
+            android:name=".Mixer"
             android:exported="true" />
         <activity
             android:name=".MainActivity5"
@@ -39,7 +48,7 @@
             android:name=".ClothingActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,6 +56,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />
 

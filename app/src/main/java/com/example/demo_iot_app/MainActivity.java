@@ -29,58 +29,26 @@ public class MainActivity extends AppCompatActivity {
 
     MQTTHelper mqttHelper;
     CardView MixerButton;
-
-//    TextView txtTemperature, txtHumidity;
-//    LabeledSwitch StartButton;
-//    Button MixerButton;
-//    Button CycleButton;
-//    Button AreaButton;
-//    Button PumpinButton;
-//    Button PumpoutButton;
-//    EditText inputCycle;
-//    EditText inputArea;
-//    EditText inputPumpin;
-//    EditText inputPumpout;
-//
-//    Button Mixer1Button;
-//    Button Mixer2Button;
-//    Button Mixer3Button;
-//
-//    EditText inputMixer1Button;
-//    EditText inputMixer2Button;
-//    EditText inputMixer3Button;
-
-
+    CardView environment;
+    CardView pumping;
+    CardView activate;
+    CardView mixer;
+    CardView time;
+    CardView area;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        txtTemperature = findViewById(R.id.textTemperature);
-//        txtHumidity = findViewById(R.id.textHumidity);
-//
-//        StartButton = findViewById(R.id.StartButton);
-          MixerButton = findViewById(R.id.MixerButton);
-//
-//        CycleButton = findViewById(R.id.CycleButton);
-//        PumpinButton = findViewById(R.id.PumpinButton);
-//        PumpoutButton = findViewById(R.id.PumpoutButton);
-//        AreaButton = findViewById(R.id.AreaButton);
-//
-//        inputCycle = findViewById(R.id.inputCycle);
-//        inputArea = findViewById(R.id.inputArea);
-//        inputPumpin = findViewById(R.id.inputPumpin);
-//        inputPumpout = findViewById(R.id.inputPumpout);
+        environment = findViewById(R.id.environment);
+        pumping = findViewById(R.id.pumping);
+        activate =findViewById(R.id.activate);
+        mixer = findViewById(R.id.MixerButton);
+        time = findViewById(R.id.time);
+        area = findViewById(R.id.area);
 
 
 
-//        Mixer1Button = findViewById(R.id.Mixer1Button);
-//        Mixer2Button = findViewById(R.id.Mixer2Button);
-//        Mixer3Button = findViewById(R.id.Mixer3Button);
-//
-//        inputMixer1Button = findViewById(R.id.inputMixer1Button);
-//        inputMixer2Button = findViewById(R.id.inputMixer2Button);
-//        inputMixer3Button = findViewById(R.id.inputMixer3Button);
 
 //        StartButton.setOnToggledListener(new OnToggledListener() {
 //            @Override
@@ -97,9 +65,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
 //
 
-
-
-        MixerButton.setOnClickListener(new View.OnClickListener() {
+        environment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(MainActivity.this, MainActivity2.class);
@@ -108,90 +74,21 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        pumping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity.this, MainActivity5.class);
+                startActivity(intent);
+            }
+        });
+        mixer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity.this, Mixer.class);
+                startActivity(intent);
+            }
+        });
 
-//        CycleButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Get the entered number from EditText
-//                String numberStr = inputCycle.getText().toString();
-//
-//                if (!numberStr.isEmpty()) {
-//                    // Convert the input to a number
-//
-//                    String topic = "huytran1305/feeds/assignment.next-cycle"; // Replace with your Adafruit username and feed name
-//                    sendDataMQTT(topic, numberStr);
-//
-//                    // Do something with the number, for example, display it
-//
-//                } else {
-//                    // If EditText is empty, show a toast
-//                    Toast.makeText(MainActivity.this, "Please enter a number", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-
-//        AreaButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Get the entered number from EditText
-//                String numberStr = inputArea.getText().toString();
-//
-//                if (!numberStr.isEmpty()) {
-//                    // Convert the input to a number
-//
-//                    String topic = "huytran1305/feeds/assignment.selector"; // Replace with your Adafruit username and feed name
-//                    sendDataMQTT(topic, numberStr);
-//
-//                    // Do something with the number, for example, display it
-//
-//                } else {
-//                    // If EditText is empty, show a toast
-//                    Toast.makeText(MainActivity.this, "Please enter a number", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-
-//        PumpinButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Get the entered number from EditText
-//                String numberStr = inputPumpin.getText().toString();
-//
-//                if (!numberStr.isEmpty()) {
-//                    // Convert the input to a number
-//
-//                    String topic = "huytran1305/feeds/assignment.pump-in"; // Replace with your Adafruit username and feed name
-//                    sendDataMQTT(topic, numberStr);
-//
-//                    // Do something with the number, for example, display it
-//
-//                } else {
-//                    // If EditText is empty, show a toast
-//                    Toast.makeText(MainActivity.this, "Please enter a number", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-
-//        PumpoutButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Get the entered number from EditText
-//                String numberStr = inputPumpout.getText().toString();
-//
-//                if (!numberStr.isEmpty()) {
-//                    // Convert the input to a number
-//
-//                    String topic = "huytran1305/feeds/assignment.pump-out"; // Replace with your Adafruit username and feed name
-//                    sendDataMQTT(topic, numberStr);
-//
-//                    // Do something with the number, for example, display it
-//
-//                } else {
-//                    // If EditText is empty, show a toast
-//                    Toast.makeText(MainActivity.this, "Please enter a number", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
         startMQTT();
     }
     public void sendDataMQTT(String topic, String value){

@@ -1,6 +1,8 @@
 package com.example.demo_iot_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,14 +29,11 @@ import android.os.Bundle;
 
 public class MainActivity2 extends AppCompatActivity {
     MQTTHelper mqttHelper;
+    CardView temperature;
+    CardView humidity;
 
-//    Button Mixer1Button;
-//    Button Mixer2Button;
-//    Button Mixer3Button;
-//
-//    EditText inputMixer1Button;
-//    EditText inputMixer2Button;
-//    EditText inputMixer3Button;
+
+
 
     public void sendDataMQTT(String topic, String value){
         MqttMessage msg = new MqttMessage();
@@ -106,13 +105,25 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-//        Mixer1Button = findViewById(R.id.Mixer1Button);
-//        Mixer2Button = findViewById(R.id.Mixer2Button);
-//        Mixer3Button = findViewById(R.id.Mixer3Button);
-//
-//        inputMixer1Button = findViewById(R.id.inputMixer1Button);
-//        inputMixer2Button = findViewById(R.id.inputMixer2Button);
-//        inputMixer3Button = findViewById(R.id.inputMixer3Button);
+        temperature = findViewById(R.id.temperature);
+        humidity = findViewById(R.id.humidity);
+
+        temperature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity2.this, MainActivity3.class);
+                startActivity(intent);
+            }
+        });
+        humidity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity2.this, MainActivity4.class);
+                startActivity(intent);
+
+            }
+        });
+
 
 //        Mixer1Button.setOnClickListener(new View.OnClickListener() {
 //            @Override

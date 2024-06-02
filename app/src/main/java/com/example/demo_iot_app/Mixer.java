@@ -27,12 +27,11 @@ import com.example.demo_iot_app.MQTTHelper;
 import java.nio.charset.Charset;
 import android.os.Bundle;
 
-public class MainActivity5 extends AppCompatActivity {
+public class Mixer extends AppCompatActivity {
     MQTTHelper mqttHelper;
-    EditText pumpin;
-    EditText pumpout;
-    Button pumpinButton;
-    Button pumpoutButton;
+    CardView mixer1;
+    CardView mixer2;
+    CardView mixer3;
     public void sendDataMQTT(String topic, String value){
         MqttMessage msg = new MqttMessage();
         msg.setId(1234);
@@ -97,60 +96,34 @@ public class MainActivity5 extends AppCompatActivity {
         });
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main5);
-        pumpin = findViewById(R.id.pumpin);
-        pumpout = findViewById(R.id.pumpout);
-        pumpinButton = findViewById(R.id.PumpinButton);
-        pumpoutButton = findViewById(R.id.pumpoutButton);
+        setContentView(R.layout.activity_mixer);
+        mixer1 = findViewById(R.id.mixer1);
+        mixer2 = findViewById(R.id.mixer2);
+        mixer3 = findViewById(R.id.mixer3);
 
-        pumpinButton.setOnClickListener(new View.OnClickListener() {
+        mixer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get the entered number from EditText
-                String numberStr = pumpin.getText().toString();
-
-                if (!numberStr.isEmpty()) {
-                    // Convert the input to a number
-
-                    String topic = "huytran1305/feeds/assignment.mixer1"; // Replace with your Adafruit username and feed name
-                    sendDataMQTT(topic, numberStr);
-
-                    // Do something with the number, for example, display it
-
-                } else {
-                    // If EditText is empty, show a toast
-                    Toast.makeText(MainActivity5.this, "Please enter a number", Toast.LENGTH_SHORT).show();
-                }
+                Intent intent= new Intent(Mixer.this, mixer1.class);
+                startActivity(intent);
             }
-
-
         });
-
-        pumpoutButton.setOnClickListener(new View.OnClickListener() {
+        mixer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get the entered number from EditText
-                String numberStr = pumpout.getText().toString();
-
-                if (!numberStr.isEmpty()) {
-                    // Convert the input to a number
-
-                    String topic = "huytran1305/feeds/assignment.mixer1"; // Replace with your Adafruit username and feed name
-                    sendDataMQTT(topic, numberStr);
-
-                    // Do something with the number, for example, display it
-
-                } else {
-                    // If EditText is empty, show a toast
-                    Toast.makeText(MainActivity5.this, "Please enter a number", Toast.LENGTH_SHORT).show();
-                }
+                Intent intent= new Intent(Mixer.this, mixer2.class);
+                startActivity(intent);
             }
-
-
+        });
+        mixer3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(Mixer.this, mixer3.class);
+                startActivity(intent);
+            }
         });
         startMQTT();
     }

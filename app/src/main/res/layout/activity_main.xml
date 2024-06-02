@@ -25,29 +25,29 @@
 <!--            app:layout_constraintTop_toBottomOf="@id/amazonName"-->
 <!--            app:layout_constraintEnd_toStartOf="@+id/amazonImage"/>-->
 
-        <TextView
-            android:id="@+id/amazonName"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="SMART FARM"
-            android:textColor="@color/lavender"
-            android:textSize="25sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <TextView-->
+<!--            android:id="@+id/amazonName"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="42dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:fontFamily="@font/poppins_semibold"-->
+<!--            android:text="SMART FARM"-->
+<!--            android:textColor="@color/lavender"-->
+<!--            android:textSize="25sp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/amazonImage"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="160dp"
-            android:id="@+id/amazonImage"
-            android:src="@drawable/amazon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintStart_toEndOf="@id/amazonName"/>
+<!--        <ImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="160dp"-->
+<!--            android:id="@+id/amazonImage"-->
+<!--            android:src="@drawable/amazon"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            app:layout_constraintStart_toEndOf="@id/amazonName"/>-->
 
         <LinearLayout
             android:layout_width="0dp"
@@ -58,8 +58,8 @@
             android:padding="10dp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/amazonImage">
+            app:layout_constraintEnd_toEndOf="parent">
+<!--            app:layout_constraintTop_toBottomOf="@id/amazonImage">-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"

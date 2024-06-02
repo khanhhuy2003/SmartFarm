@@ -86,6 +86,19 @@
                         android:textColor="@color/lavender"
                         android:textSize="20sp"
                         tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/humid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="55dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="100 %"
+                        android:textColor="@color/lavender"
+                        android:textSize="40sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
                     <!--                    <ImageView-->
                     <!--                        android:id="@+id/clothingImage"-->
                     <!--                        android:layout_width="70dp"-->

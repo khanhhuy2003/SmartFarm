@@ -87,13 +87,26 @@
                         android:textSize="20sp"
                         tools:ignore="HardcodedText" />
 
-<!--                    <ImageView-->
-<!--                        android:id="@+id/clothingImage"-->
-<!--                        android:layout_width="70dp"-->
-<!--                        android:layout_height="70dp"-->
-<!--                        android:layout_centerHorizontal="true"-->
-<!--                        android:layout_marginTop="15dp"-->
-<!--                        android:src="@drawable/environment" />-->
+                    <TextView
+                        android:id="@+id/temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="55dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="300 °C"
+                        android:textColor="@color/lavender"
+                        android:textSize="40sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                    <!--                    <ImageView-->
+                    <!--                        android:id="@+id/clothingImage"-->
+                    <!--                        android:layout_width="70dp"-->
+                    <!--                        android:layout_height="70dp"-->
+                    <!--                        android:layout_centerHorizontal="true"-->
+                    <!--                        android:layout_marginTop="15dp"-->
+                    <!--                        android:src="@drawable/environment" />-->
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>

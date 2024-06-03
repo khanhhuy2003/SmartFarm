@@ -22,9 +22,11 @@ public class MainActivity3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
-        startMQTT();
+        setContentView(R.layout.activity_main3);
         temp = findViewById(R.id.temp);
+
+
+        startMQTT();
     }
 
 
@@ -60,7 +62,7 @@ public class MainActivity3 extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
                 Log.d("TEST", topic + "***" +message.toString());
-                if(topic.contains("huytran1305/feeds/assignment.temperature")) {
+                if(topic.contains("khanhhuy03/feeds/temperature")) {
                     temp.setText(message.toString() + "%");
                 }
             }

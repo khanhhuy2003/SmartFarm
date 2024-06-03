@@ -47,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
         time = findViewById(R.id.time);
         area = findViewById(R.id.area);
 
-
-
-
 //        StartButton.setOnToggledListener(new OnToggledListener() {
 //            @Override
 //            public void onSwitched(ToggleableView toggleableView, boolean isOn) {
@@ -64,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 //
-
         environment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

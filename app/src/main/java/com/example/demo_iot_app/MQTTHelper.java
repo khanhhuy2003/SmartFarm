@@ -17,13 +17,14 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 public class MQTTHelper {
     public MqttAndroidClient mqttAndroidClient;
     private Context context;
-    public final String[] arrayTopics = {"huytran1305/feeds/assignment.next-cycle", "huytran1305/feeds/assignment.active","huytran1305/feeds/assignment.humidity",
-            "huytran1305/feeds/assignment.pump-in","huytran1305/feeds/assignment.pump-out", "huytran1305/feeds/assignment.selector","huytran1305/feeds/assignment.temperature",
-            "huytran1305/feeds/assignment.mixer1","huytran1305/feeds/assignment.mixer2","huytran1305/feeds/assignment.mixer3"};
+    public final String[] arrayTopics = {"khanhhuy03/feeds/mixer1","khanhhuy03/feeds/mixer2","khanhhuy03/feeds/mixer3","khanhhuy03/feeds/temperature","khanhhuy03/feeds/humidity"};
+//    public final String[] arrayTopics = {"huytran1305/feeds/assignment.next-cycle", "huytran1305/feeds/assignment.active","huytran1305/feeds/assignment.humidity",
+//            "huytran1305/feeds/assignment.pump-in","huytran1305/feeds/assignment.pump-out", "huytran1305/feeds/assignment.selector","huytran1305/feeds/assignment.temperature",
+//            "huytran1305/feeds/assignment.mixer1","huytran1305/feeds/assignment.mixer2","huytran1305/feeds/assignment.mixer3"};
 
-    final String clientId = "12345678";
-    final String username = "huytran1305";
-    final String password = "";
+    final String clientId = "734327472";
+    final String username = "khanhhuy03";
+    //final String password = "aio_DXLj74jYBRVg3U6pPfVvsGyWNont";
 
     final String serverUri = "tcp://io.adafruit.com:1883";
     public MQTTHelper(Context context){

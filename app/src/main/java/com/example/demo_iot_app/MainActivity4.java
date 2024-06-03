@@ -23,8 +23,9 @@ public class MainActivity4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
-        startMQTT();
         humid = findViewById(R.id.humid);
+
+        startMQTT();
     }
 
 
@@ -60,7 +61,7 @@ public class MainActivity4 extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
                 Log.d("TEST", topic + "***" +message.toString());
-                if(topic.contains("huytran1305/feeds/assignment.humdity")) {
+                if(topic.contains("khanhhuy03/feeds/humidity")) {
                     humid.setText(message.toString() + "%");
                 }
             }

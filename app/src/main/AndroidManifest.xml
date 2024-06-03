@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo_IOT_App">
         <activity
+            android:name=".area"
+            android:exported="true" />
+        <activity
+            android:name=".time"
+            android:exported="true" />
+        <activity
             android:name=".mixer3"
             android:exported="true" />
         <activity

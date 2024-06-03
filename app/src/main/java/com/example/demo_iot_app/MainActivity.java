@@ -85,6 +85,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity.this, time.class);
+                startActivity(intent);
+            }
+        });
+        area.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity.this, area.class);
+                startActivity(intent);
+            }
+        });
+
         startMQTT();
     }
     public void sendDataMQTT(String topic, String value){

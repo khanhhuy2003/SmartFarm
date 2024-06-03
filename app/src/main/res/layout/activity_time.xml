@@ -31,7 +31,7 @@
                 android:id="@+id/loginText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mixer 1"
+                android:text="Time"
                 android:textAlignment="center"
                 android:textColor="@color/purple"
                 android:textSize="36sp"
@@ -40,7 +40,7 @@
                 tools:ignore="HardcodedText" />
 
             <EditText
-                android:id="@+id/mixer1"
+                android:id="@+id/setTime"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
@@ -53,7 +53,7 @@
                 android:textColorHighlight="@color/cardview_dark_background" />
 
             <Button
-                android:id="@+id/mixer1Button"
+                android:id="@+id/setTimeButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"

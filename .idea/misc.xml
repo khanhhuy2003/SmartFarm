@@ -26,9 +26,11 @@
         <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/App/IOT-app/app/src/main/res/layout/activity_main4.xml" value="0.2171875" />
         <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/App/IOT-app/app/src/main/res/layout/activity_main5.xml" value="0.23125" />
         <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/drawable/custom_edittext.xml" value="0.18564102564102564" />
         <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/layout/activity_area.xml" value="0.17239583333333333" />
         <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/layout/activity_main2.xml" value="0.25" />
@@ -39,6 +41,7 @@
         <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/layout/activity_mixer1.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/layout/activity_mixer2.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/layout/activity_mixer3.xml" value="0.18489583333333334" />
+        <entry key="..\:/Users/ASUS/Desktop/HK232/IOT/LAB/SmartFarm/app/src/main/res/layout/activity_time.xml" value="0.17239583333333333" />
       </map>
     </option>
   </component>

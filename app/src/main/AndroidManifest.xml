@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo_IOT_App">
         <activity
+            android:name=".Line"
+            android:exported="true" />
+        <activity
+            android:name=".LineChart"
+            android:exported="true" />
+        <activity
             android:name=".area"
             android:exported="true" />
         <activity

@@ -2,17 +2,19 @@ package com.example.demo_iot_app;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
@@ -21,14 +23,15 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import java.nio.charset.Charset;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
-public class MainActivity3 extends AppCompatActivity {
+public class Line extends AppCompatActivity {
     private MQTTHelper mqttHelper;
+    private EditText pumpin;
+    private EditText pumpout;
+    private Button pumpinButton;
+    private Button pumpoutButton;
     private LineChart lineChart;
     private LineData lineData;
     private LineDataSet lineDataSet;
@@ -65,13 +68,9 @@ public class MainActivity3 extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage message) {
                 Log.d("TEST", topic + "***" + message.toString());
-                if (topic.contains("khanhhuy03/feeds/temperature")) {
-                    try {
-                        float temperature = Float.parseFloat(message.toString());
-                        runOnUiThread(() -> addEntry(temperature));
-                    } catch (NumberFormatException e) {
-                        Log.e("MainActivity3", "Invalid temperature format", e);
-                    }
+                if (topic.contains("temperature")) {
+                    float temperature = Float.parseFloat(message.toString());
+                    addEntry(temperature);
                 }
             }
 
@@ -83,23 +82,18 @@ public class MainActivity3 extends AppCompatActivity {
     }
 
     private void addEntry(float temperature) {
-        // Use relative time to ensure continuous line visualization
-        long elapsedTime = (System.currentTimeMillis() - startTime) / 1000;
-        lineEntries.add(new Entry(elapsedTime, temperature));
+        long currentTime = System.currentTimeMillis();
+        lineEntries.add(new Entry(currentTime, temperature));
         lineDataSet.notifyDataSetChanged();
         lineData.notifyDataChanged();
         lineChart.notifyDataSetChanged();
-        lineChart.setVisibleXRangeMaximum(60); // Show last 60 seconds of data
-        lineChart.moveViewToX(lineData.getEntryCount());
         lineChart.invalidate();
     }
-
-    private long startTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_main5);
 
         lineChart = findViewById(R.id.lineChart);
         lineEntries = new ArrayList<>();
@@ -111,35 +105,17 @@ public class MainActivity3 extends AppCompatActivity {
         lineData = new LineData(lineDataSet);
         lineChart.setData(lineData);
 
-        // Set X-axis configuration
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
-        xAxis.setValueFormatter(new ValueFormatter() {
-            @Override
-            public String getFormattedValue(float value) {
-                // Show time in HH:mm:ss format
-                long millis = startTime + ((long) value * 1000);
-                return new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date(millis));
-            }
-        });
 
-        // Set Y-axis configuration
-        YAxis leftAxis = lineChart.getAxisLeft();
-        leftAxis.setAxisMinimum(0f);
-        leftAxis.setAxisMaximum(1000f);
-        leftAxis.setLabelCount(10, true);
-
-        lineChart.getAxisRight().setEnabled(false); // Disable right Y-axis
-
-        // Set description
         Description description = new Description();
         description.setText("Temperature over Time");
         lineChart.setDescription(description);
 
-        lineChart.invalidate(); // Ensure the chart is drawn initially
 
-        startTime = System.currentTimeMillis(); // Initialize start time
+
+
         startMQTT();
     }
 }

@@ -18,7 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo_IOT_App">
         <activity
-            android:name=".Line"
+            android:name=".LineChart2"
+            android:exported="true" />
+        <activity
+            android:name=".LineChart1"
             android:exported="true" />
         <activity
             android:name=".LineChart"
@@ -52,12 +55,6 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity2"
-            android:exported="true" />
-        <activity
-            android:name=".Button1Activity"
-            android:exported="true" />
-        <activity
-            android:name=".ClothingActivity"
             android:exported="true" />
         <activity
             android:name=".LoginActivity"

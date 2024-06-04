@@ -13,40 +13,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/constraintLayout"
         android:layout_marginTop="20dp">
-<!--        <TextView-->
-<!--            android:id="@+id/amazonName"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="42dp"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:layout_marginTop="28dp"-->
-<!--            android:fontFamily="@font/poppins_semibold"-->
-<!--            android:text="SMART FARM"-->
-<!--            android:textColor="@color/lavender"-->
-<!--            android:textSize="30sp"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/amazonImage"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <!--        <TextView-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:id="@+id/amazonDesc"-->
-        <!--            android:text="Shop from A to Z"-->
-        <!--            android:textSize="14sp"-->
-        <!--            android:layout_marginStart="18dp"-->
-        <!--            android:textColor="@color/lavender"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/amazonName"-->
-        <!--            app:layout_constraintEnd_toStartOf="@+id/amazonImage"/>-->
-<!--        <ImageView-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="160dp"-->
-<!--            android:id="@+id/amazonImage"-->
-<!--            android:src="@drawable/amazon"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            android:layout_marginEnd="16dp"-->
-<!--            app:layout_constraintStart_toEndOf="@id/amazonName"/>-->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="175dp"

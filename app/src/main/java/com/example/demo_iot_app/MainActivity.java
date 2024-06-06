@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     CardView time;
     CardView area;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,20 +48,6 @@ public class MainActivity extends AppCompatActivity {
         time = findViewById(R.id.time);
         area = findViewById(R.id.area);
 
-//        StartButton.setOnToggledListener(new OnToggledListener() {
-//            @Override
-//            public void onSwitched(ToggleableView toggleableView, boolean isOn) {
-//                if(isOn == true){
-//                    sendDataMQTT( "huytran1305/feeds/assignment.active","1");
-//
-//                }
-//                else{
-//                    sendDataMQTT( "huytran1305/feeds/assignment.active","0");
-//
-//                }
-//            }
-//        });
-//
         environment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,6 +86,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        activate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity.this, active.class);
+                startActivity(intent);
+            }
+        });
+
 
         startMQTT();
     }
@@ -135,21 +130,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
                 Log.d("TEST", topic + "***" + message.toString());
-//                if(topic.contains("huytran1305/feeds/assignment.temperature")){
-//                    txtTemperature.setText(message.toString() + "*C");
-//                }
-//                else if(topic.contains("huytran1305/feeds/assignment.humidity")){
-//                    txtHumidity.setText(message.toString() + "%");
-//                }
 
-//                else if(topic.contains("nutnhan2")){
-//                    if(message.toString().equals("1")){
-//                        btnLED2.setOn(true);
-//                    }
-//                    else{
-//                        btnLED2.setOn(false);
-//                    }
-//                }
             }
             @Override
             public void deliveryComplete(IMqttDeliveryToken token) {

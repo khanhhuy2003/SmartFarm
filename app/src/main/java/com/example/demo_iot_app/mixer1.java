@@ -3,7 +3,10 @@ package com.example.demo_iot_app;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,6 +98,11 @@ public class mixer1 extends AppCompatActivity {
             }
         });
     }
+    private boolean isInternetConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+    }
 
 
     @Override
@@ -107,6 +115,11 @@ public class mixer1 extends AppCompatActivity {
         mixer1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (!isInternetConnected()) {
+                    Toast.makeText(mixer1.this, "No internet connection", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 // Get the entered number from EditText
                 String numberStr = mixer1.getText().toString();
 
@@ -126,30 +139,6 @@ public class mixer1 extends AppCompatActivity {
 
 
         });
-//
-//        Mixer2Button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Get the entered number from EditText
-//                String numberStr = inputMixer2Button.getText().toString();
-//
-//                if (!numberStr.isEmpty()) {
-//                    // Convert the input to a number
-//
-//                    String topic = "huytran1305/feeds/assignment.mixer2"; // Replace with your Adafruit username and feed name
-//                    sendDataMQTT(topic, numberStr);
-//
-//                    // Do something with the number, for example, display it
-//
-//                } else {
-//                    // If EditText is empty, show a toast
-//                    Toast.makeText(MainActivity2.this, "Please enter a number", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//
-//
-//        });
-//
         startMQTT();
     }
 

@@ -107,6 +107,10 @@ public class LineChart2 extends AppCompatActivity {
         lineDataSet.setValueTextColor(android.R.color.black);
         lineDataSet.setValueTextSize(10f);
 
+        lineDataSet.setCircleRadius(6f);  // Increase the circle radius
+        //lineDataSet.setCircleHoleRadius(3f); // Increase the hole radius
+        lineDataSet.setDrawValues(false);
+
         lineData = new LineData(lineDataSet);
         lineChart.setData(lineData);
 
@@ -126,7 +130,7 @@ public class LineChart2 extends AppCompatActivity {
         // Set Y-axis configuration
         YAxis leftAxis = lineChart.getAxisLeft();
         leftAxis.setAxisMinimum(0f);
-        leftAxis.setAxisMaximum(1000f);
+        leftAxis.setAxisMaximum(100f);
         leftAxis.setLabelCount(10, true);
 
         lineChart.getAxisRight().setEnabled(false); // Disable right Y-axis

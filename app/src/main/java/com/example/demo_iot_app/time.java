@@ -66,6 +66,8 @@ public class time extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
                 Log.d("TEST", topic + "***" + message.toString());
+
+
 //                    if(topic.contains("cambien1")){
 //                        txtTemperature.setText(message.toString() + "*C");
 //                    }
@@ -113,7 +115,7 @@ public class time extends AppCompatActivity {
                 if (!numberStr.isEmpty()) {
                     // Convert the input to a number
 
-                    String topic = "khanhhuy03/feeds/time"; // Replace with your Adafruit username and feed name
+                    String topic = "khanhhuy03/feeds/next-cycle"; // Replace with your Adafruit username and feed name
                     sendDataMQTT(topic, numberStr);
 
                     // Do something with the number, for example, display it

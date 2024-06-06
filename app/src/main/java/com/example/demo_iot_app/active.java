@@ -27,10 +27,10 @@ import com.example.demo_iot_app.MQTTHelper;
 import java.nio.charset.Charset;
 import android.os.Bundle;
 
-public class area extends AppCompatActivity {
+public class active extends AppCompatActivity {
     MQTTHelper mqttHelper;
-    EditText setArea;
-    Button setAreaButton;
+    LabeledSwitch activate;
+
 
     public void sendDataMQTT(String topic, String value){
         MqttMessage msg = new MqttMessage();
@@ -66,28 +66,14 @@ public class area extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
                 Log.d("TEST", topic + "***" + message.toString());
-//                    if(topic.contains("cambien1")){
-//                        txtTemperature.setText(message.toString() + "*C");
-//                    }
-//                    else if(topic.contains("cambien2")){
-//                        txtHumidity.setText(message.toString() + "%");
-//                    }
-//                else if(topic.contains("nutnhan1")){
-//                    if(message.toString().equals("1")){
-//                        btnLED1.setOn(true);
-//                    }
-//                    else{
-//                        btnLED1.setOn(false);
-//                    }
-//                }
-//                else if(topic.contains("nutnhan2")){
-//                    if(message.toString().equals("1")){
-//                        btnLED2.setOn(true);
-//                    }
-//                    else{
-//                        btnLED2.setOn(false);
-//                    }
-//                }
+                    if(topic.contains("active")){
+                        if(message.toString().equals("1")){
+                            activate.setOn(true);
+                        }
+                        else{
+                            activate.setOn(false);
+                        }
+                    }
             }
             @Override
             public void deliveryComplete(IMqttDeliveryToken token) {
@@ -100,31 +86,22 @@ public class area extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_area);
+        setContentView(R.layout.activity_active);
 
-        setArea = findViewById(R.id.setArea);
-        setAreaButton = findViewById(R.id.setAreaButton);
-        setAreaButton.setOnClickListener(new View.OnClickListener() {
+        activate = findViewById(R.id.activate);
+        activate.setOnToggledListener(new OnToggledListener() {
             @Override
-            public void onClick(View v) {
-                // Get the entered number from EditText
-                String numberStr = setArea.getText().toString();
+            public void onSwitched(ToggleableView toggleableView, boolean isOn) {
+                if(isOn){
+                    sendDataMQTT("khanhhuy03/feeds/active", "1");
 
-                if (!numberStr.isEmpty()) {
-                    // Convert the input to a number
-
-                    String topic = "khanhhuy03/feeds/selector"; // Replace with your Adafruit username and feed name
-                    sendDataMQTT(topic, numberStr);
-
-                    // Do something with the number, for example, display it
-
-                } else {
-                    // If EditText is empty, show a toast
-                    Toast.makeText(area.this, "Please enter a number", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    sendDataMQTT("khanhhuy03/feeds/active", "0");
+
+                }
+
             }
-
-
         });
         startMQTT();
     }

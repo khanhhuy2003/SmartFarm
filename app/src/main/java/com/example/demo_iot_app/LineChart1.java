@@ -236,6 +236,7 @@ public class LineChart1 extends AppCompatActivity {
         lineChart.notifyDataSetChanged();
         lineChart.setVisibleXRangeMaximum(60); // Show last 60 seconds of data
         lineChart.moveViewToX(lineData.getEntryCount());
+        lineDataSet.setLineWidth(3f);
         lineChart.invalidate();
     }
     @Override

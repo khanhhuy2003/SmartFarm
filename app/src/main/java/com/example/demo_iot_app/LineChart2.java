@@ -106,10 +106,10 @@ public class LineChart2 extends AppCompatActivity {
         lineDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
         lineDataSet.setValueTextColor(android.R.color.black);
         lineDataSet.setValueTextSize(10f);
-
         lineDataSet.setCircleRadius(6f);  // Increase the circle radius
         //lineDataSet.setCircleHoleRadius(3f); // Increase the hole radius
         lineDataSet.setDrawValues(false);
+        lineDataSet.setLineWidth(3f);
 
         lineData = new LineData(lineDataSet);
         lineChart.setData(lineData);
@@ -137,7 +137,7 @@ public class LineChart2 extends AppCompatActivity {
 
         // Set description
         Description description = new Description();
-        description.setText("Temperature over Time");
+        description.setText("Humidity over Time");
         lineChart.setDescription(description);
 
         lineChart.invalidate(); // Ensure the chart is drawn initially
